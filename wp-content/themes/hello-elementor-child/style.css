@@ -1,0 +1,125 @@
+/*
+ Theme Name:   Hello Elementor Child for Frank Behrens
+ Description:  Child Theme for Frank Behrens
+ Author:       Benno Flory
+ Author URI:   https://web-und-wandel.net/
+ Template:     hello-elementor
+ Version:      1.0
+ Text Domain:  hello-elementor-child
+*/
+
+/***********************
+ * Header elements     *
+ ***********************/
+
+html {
+/*  scroll-behavior: smooth;*/
+}
+html:not(.wp-toolbar) {
+  scroll-padding-top: 160px;
+}
+.page {
+    margin-top: 160px;
+}
+/*.page.admin-bar {
+    margin-top: 192px;
+    position: relative;
+    top: -16px;
+}*/
+.page .site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 10;
+	background-color: #fff;
+	height: 160px;
+	transition: all .5s;
+}
+.page.admin-bar .site-header {
+	top: 32px;
+}
+.page.scrolling-down .site-header {
+    height: 72px;
+}
+.site-title {
+	transition: all .5s;
+}
+.page.scrolling-down .site-title {
+    font-size: 2rem;
+}
+.site-description {
+    height: 24px;
+    opacity: 1;
+	transition: all .5s;
+}
+.page.scrolling-down .site-description {
+    height: 0;
+    opacity: 0;
+}
+.site-header:not(.header-stacked) .header-inner .site-branding {
+    max-width: 100%;
+}
+.site-branding a:active, 
+.site-branding a:hover {
+  color: #c36;
+}
+.page-header {
+	display: none;
+}
+.site-navigation ul.menu li.menu-item-has-children {
+  padding-right: 0;
+}
+.site-navigation ul.menu li.menu-item-has-children:after {
+  display: none;
+}
+
+/***********************
+ * Typography          *
+ ***********************/
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1rem;
+}
+h1 {
+  color: var( --e-global-color-primary );
+}
+h2 {
+  color: var( --e-global-color-secondary );
+  font-size: 2.5rem;
+}
+h3, h4 {
+  color: #54595F;
+}
+
+/***********************
+ * Elementor overrides *
+ ***********************/
+
+.site-main .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+  padding: 40px 40px 40px 0;
+}
+.site-main .elementor-top-section:nth-child(odd) {
+  background-color: #E8F8FF;
+}
+.elementor-column-gap-default>.elementor-column:last-child>.elementor-element-populated {
+	padding-right: 0;
+}
+.elementor-widget-container :first-child{
+  margin-top: 0;
+}
+
+/***********************
+ * Footer overrides    *
+ ***********************/
+
+footer .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+	padding: 20px 0;
+}
+footer p {
+  margin-bottom: 0;
+}
+footer a[href*=facebook] {
+  color: red;
+}
