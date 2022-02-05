@@ -9,70 +9,24 @@
 */
 
 /***********************
- * Header elements     *
+ * Container overrides *
  ***********************/
 
-html {
-/*  scroll-behavior: smooth;*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
+  .site-header .header-inner, .site-header:not(.dynamic-header), 
+  body:not([class*=elementor-page-]) .site-main, 
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 700px;
+  }
 }
-html:not(.wp-toolbar) {
-  scroll-padding-top: 160px;
-}
-.page {
-    margin-top: 160px;
-}
-/*.page.admin-bar {
-    margin-top: 192px;
-    position: relative;
-    top: -16px;
-}*/
-.page .site-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	z-index: 10;
-	background-color: #fff;
-	height: 160px;
-	transition: all .5s;
-}
-.page.admin-bar .site-header {
-	top: 32px;
-}
-.page.scrolling-down .site-header {
-    height: 72px;
-}
-.site-title {
-	transition: all .5s;
-}
-.page.scrolling-down .site-title {
-    font-size: 2rem;
-}
-.site-description {
-    height: 24px;
-    opacity: 1;
-	transition: all .5s;
-}
-.page.scrolling-down .site-description {
-    height: 0;
-    opacity: 0;
-}
-.site-header:not(.header-stacked) .header-inner .site-branding {
-    max-width: 100%;
-}
-.site-branding a:active, 
-.site-branding a:hover {
-  color: #c36;
-}
-.page-header {
-	display: none;
-}
-.site-navigation ul.menu li.menu-item-has-children {
-  padding-right: 0;
-}
-.site-navigation ul.menu li.menu-item-has-children:after {
-  display: none;
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
+  .site-header .header-inner, .site-header:not(.dynamic-header), 
+  body:not([class*=elementor-page-]) .site-main, 
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 900px;
+  }
 }
 
 /***********************
@@ -80,7 +34,7 @@ html:not(.wp-toolbar) {
  ***********************/
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 h1 {
   color: var( --e-global-color-primary );
@@ -94,17 +48,113 @@ h3, h4 {
 }
 
 /***********************
+ * Header elements     *
+ ***********************/
+
+html {
+  /*  scroll-behavior: smooth;*/
+}
+html:not(.wp-toolbar) {
+  scroll-padding-top: 130px;
+}
+.page {
+  margin-top: 130px;
+}
+/*.page.admin-bar {
+    margin-top: 192px;
+    position: relative;
+    top: -16px;
+}*/
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  margin: 0 auto;
+  z-index: 10;
+  background-color: #fff;
+  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 0%);
+  transition: all .5s;
+}
+.admin-bar .site-header {
+  top: 32px;
+}
+.scrolling-down .site-header {
+  height: 72px;
+  box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 30%);
+}
+.site-branding {
+  transition: all .5s;
+}
+.scrolling-down .site-branding {
+  margin-bottom: 14px;
+}
+.site-title {
+  transition: all .5s;
+}
+.scrolling-down .site-title {
+  font-size: 2rem;
+}
+.site-description {
+  height: 24px;
+  opacity: 1;
+  transition: all .5s;
+}
+.scrolling-down .site-description {
+  height: 0;
+  opacity: 0;
+}
+.site-header:not(.header-stacked) .header-inner .site-branding {
+  max-width: 100%;
+}
+.site-branding a:active, 
+.site-branding a:hover {
+  color: #c36;
+}
+.page-header {
+  display: none;
+}
+.site-navigation ul.menu {
+	transition: all .5s;
+  margin-bottom: 4px;
+}
+.scrolling-down .site-navigation ul.menu {
+  margin-bottom: 0 !important;
+}
+.site-navigation ul.menu li.menu-item-has-children {
+  padding-right: 0;
+}
+.site-navigation ul.menu li.menu-item-has-children:after {
+  display: none;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .site-navigation ul.menu {
+    margin-bottom: 10px;
+  }
+}
+
+
+/***********************
  * Elementor overrides *
  ***********************/
 
 .site-main .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
   padding: 40px 40px 40px 0;
 }
+.site-main .elementor-top-section {
+  background-color: #FFF;
+}
+.page, 
 .site-main .elementor-top-section:nth-child(odd) {
   background-color: #E8F8FF;
 }
 .elementor-column-gap-default>.elementor-column:last-child>.elementor-element-populated {
-	padding-right: 0;
+  padding-right: 0;
 }
 .elementor-widget-container :first-child{
   margin-top: 0;
@@ -114,12 +164,18 @@ h3, h4 {
  * Footer overrides    *
  ***********************/
 
+footer {
+  background-color: #fff;
+}
 footer .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
-	padding: 20px 0;
+  padding: 20px 0;
 }
 footer p {
   margin-bottom: 0;
 }
 footer a[href*=facebook] {
   color: red;
+}
+.hfe-nav-menu a.hfe-menu-item {
+  line-height: 1.5;
 }

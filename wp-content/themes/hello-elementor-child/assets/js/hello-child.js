@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
    * @param string anchorHash
    */
   function scrollToAnchor(anchorHash) {
-    var headerHeight = 110; // Fixed, because measuring of dynamic header would fail
+    var headerHeight = 80; // Fixed, because measuring of dynamic header would fail
     var target = $(anchorHash);
     var offset = headerHeight + ($('#wpadminbar').length ? $('#wpadminbar').height() : 0);
     target = target.length ? target : $('[name=' + anchorHash.slice(1) + ']');
@@ -27,7 +27,7 @@ jQuery(document).ready(function ($) {
 
   // Add scrolling class when scrolling down (e.g. to style top header)
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 50) {
+    if ($(window).scrollTop() > 80) {
       $('body').addClass('scrolling-down');
     } else {
       $('body').removeClass('scrolling-down');
