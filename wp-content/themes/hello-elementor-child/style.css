@@ -12,6 +12,13 @@
  * Container overrides *
  ***********************/
 
+.site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
+.site-header .header-inner, .site-header:not(.dynamic-header), 
+body:not([class*=elementor-page-]) .site-main, 
+.elementor-top-section.elementor-section-boxed > .elementor-container {
+  max-width: calc(100% - 40px);
+  padding: 0;
+}
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
   .site-header .header-inner, .site-header:not(.dynamic-header), 
@@ -122,11 +129,17 @@ html:not(.wp-toolbar) {
 .scrolling-down .site-navigation ul.menu {
   margin-bottom: 0 !important;
 }
-.site-navigation ul.menu li.menu-item-has-children {
-  padding-right: 0;
+.site-navigation .menu-item .dashicons {
+  padding-top: 3px;
 }
 .site-navigation ul.menu li.menu-item-has-children:after {
   display: none;
+}
+.site-navigation ul.menu li ul {
+  box-shadow: 0px 4px 3px 0px rgb(0 0 0 / 10%);
+  min-width: auto;
+  left: auto;
+  right: 20px;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -137,7 +150,68 @@ html:not(.wp-toolbar) {
     margin-bottom: 10px;
   }
 }
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
 
+/***********************
+ * Mobile menu         *
+ ***********************/
+
+/* Hamburger override. */
+/* Source: https://alvarotrigo.com/blog/hamburger-menu-css/#5.-hamburger-menu-animations */
+
+.site-navigation-toggle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50px;
+  right: 50px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+.scrolling-down .site-navigation-toggle {
+  top: 20px;
+  right: 30px;
+}
+.site-navigation-toggle:hover {
+  /*cursor: pointer;*/
+}
+.site-navigation-toggle-holder .site-navigation-toggle {
+  background: transparent;
+}
+.site-navigation-toggle .eicon-menu-bar, 
+.site-navigation-toggle .eicon-menu-bar:before, 
+.site-navigation-toggle .eicon-menu-bar:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  top: 15px;
+  background-color: darkgrey;
+}
+.site-navigation-toggle .eicon-menu-bar:before {
+  content: "";
+  top: -10px;
+}
+.site-navigation-toggle .eicon-menu-bar:after {
+  content: "";
+  top: 10px;
+}
+.elementor-active .site-navigation-toggle .eicon-menu-bar {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+.site-navigation-toggle-holder.elementor-active .site-navigation-toggle .eicon-menu-bar:before {
+  content: "";
+  transform: rotateZ(45deg) scaleX(1.25) translate(7px, 7px);
+}
+.site-navigation-toggle-holder.elementor-active .site-navigation-toggle .eicon-menu-bar:after {
+  content: "";
+  transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+}
 
 /***********************
  * Elementor overrides *
@@ -174,7 +248,7 @@ footer p {
   margin-bottom: 0;
 }
 footer a[href*=facebook] {
-  color: red;
+  color: var( --e-global-color-primary );
 }
 .hfe-nav-menu a.hfe-menu-item {
   line-height: 1.5;

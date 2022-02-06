@@ -3,6 +3,10 @@ jQuery(document).ready(function ($) {
   // -------------------
   // SCROLLING behaviour
   // -------------------
+  
+  // Config
+  var headerHeight = 100; // Fixed value, because measuring of dynamic header would fail
+  var scrollModeOffset = 60; // After x pixels of scrolling down, the 'scrolling-down' class is set, e.g. for header layout
    
   /**
    * Smooth scrolling to anchor, including offset (header and WP toolbar)
@@ -10,7 +14,6 @@ jQuery(document).ready(function ($) {
    * @param string anchorHash
    */
   function scrollToAnchor(anchorHash) {
-    var headerHeight = 80; // Fixed, because measuring of dynamic header would fail
     var target = $(anchorHash);
     var offset = headerHeight + ($('#wpadminbar').length ? $('#wpadminbar').height() : 0);
     target = target.length ? target : $('[name=' + anchorHash.slice(1) + ']');
@@ -27,7 +30,7 @@ jQuery(document).ready(function ($) {
 
   // Add scrolling class when scrolling down (e.g. to style top header)
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 80) {
+    if ($(window).scrollTop() > scrollModeOffset) {
       $('body').addClass('scrolling-down');
     } else {
       $('body').removeClass('scrolling-down');
@@ -42,11 +45,10 @@ jQuery(document).ready(function ($) {
       return false;
     }
   });
+  
   // Scroll on page load
   if (location.hash > '#') {
     scrollToAnchor(location.hash);
   }
-  
-  // -------------------
   
 });
