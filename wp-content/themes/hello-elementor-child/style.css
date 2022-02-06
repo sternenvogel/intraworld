@@ -12,12 +12,14 @@
  * Container overrides *
  ***********************/
 
-.site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
-.site-header .header-inner, .site-header:not(.dynamic-header), 
-body:not([class*=elementor-page-]) .site-main, 
-.elementor-top-section.elementor-section-boxed > .elementor-container {
-  max-width: calc(100% - 40px);
-  padding: 0;
+@media screen and (max-width: 767px) {
+  .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
+  .site-header .header-inner, .site-header:not(.dynamic-header), 
+  body:not([class*=elementor-page-]) .site-main, 
+  .elementor-top-section.elementor-section-boxed > .elementor-container {
+    max-width: calc(100% - 50px);
+    padding: 0;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
@@ -113,7 +115,7 @@ html:not(.wp-toolbar) {
   opacity: 0;
 }
 .site-header:not(.header-stacked) .header-inner .site-branding {
-  max-width: 100%;
+  max-width: calc(100% - 50px);
 }
 .site-branding a:active, 
 .site-branding a:hover {
@@ -155,6 +157,11 @@ html:not(.wp-toolbar) {
     font-size: 2rem;
   }
 }
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
 
 /***********************
  * Mobile menu         *
@@ -176,6 +183,15 @@ html:not(.wp-toolbar) {
   top: 20px;
   right: 30px;
 }
+@media screen and (max-width: 767px) {
+  .site-navigation-toggle-holder {
+    padding-right: 0;
+  }
+  .site-navigation-toggle, 
+  .scrolling-down .site-navigation-toggle {
+    right: 25px;
+  }
+}
 .site-navigation-toggle:hover {
   /*cursor: pointer;*/
 }
@@ -190,7 +206,7 @@ html:not(.wp-toolbar) {
   height: 2px;
   width: 30px;
   top: 15px;
-  background-color: darkgrey;
+  background-color: var( --e-global-color-text );
 }
 .site-navigation-toggle .eicon-menu-bar:before {
   content: "";
@@ -217,8 +233,16 @@ html:not(.wp-toolbar) {
  * Elementor overrides *
  ***********************/
 
-.site-main .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+.elementor-column-gap-default>.elementor-column>.elementor-element-populated {
   padding: 40px 40px 40px 0;
+}
+.elementor-column-gap-default>.elementor-column:last-child>.elementor-element-populated {
+  padding-right: 0;
+}
+@media screen and (max-width: 767px) {
+  .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+    padding-right: 0;
+  }
 }
 .site-main .elementor-top-section {
   background-color: #FFF;
@@ -226,9 +250,6 @@ html:not(.wp-toolbar) {
 .page, 
 .site-main .elementor-top-section:nth-child(odd) {
   background-color: #E8F8FF;
-}
-.elementor-column-gap-default>.elementor-column:last-child>.elementor-element-populated {
-  padding-right: 0;
 }
 .elementor-widget-container :first-child{
   margin-top: 0;

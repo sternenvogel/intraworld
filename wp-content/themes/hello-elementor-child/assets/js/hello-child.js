@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
   // -------------------
   
   // Config
-  var headerHeight = 100; // Fixed value, because measuring of dynamic header would fail
+  var headerHeight = 110; // Fixed value, because measuring of dynamic header would fail
   var scrollModeOffset = 60; // After x pixels of scrolling down, the 'scrolling-down' class is set, e.g. for header layout
    
   /**
