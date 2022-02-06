@@ -52,8 +52,20 @@ h2 {
   color: var( --e-global-color-secondary );
   font-size: 2.5rem;
 }
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 1.1rem;
+}
 h3, h4 {
   color: #54595F;
+}
+.page-content a {
+    color: #54595F;
+}
+.page-content a {
+    color: #54595F;
 }
 
 /***********************
@@ -100,6 +112,7 @@ html:not(.wp-toolbar) {
   margin-bottom: 14px;
 }
 .site-title {
+  font-size: 2.5rem;
   transition: all .5s;
 }
 .scrolling-down .site-title {
@@ -145,7 +158,7 @@ html:not(.wp-toolbar) {
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  h1 {
+  h1, .site-title {
     font-size: 2rem;
   }
   .site-navigation ul.menu {
@@ -153,12 +166,13 @@ html:not(.wp-toolbar) {
   }
 }
 @media screen and (max-width: 767px) {
-  h1 {
+  h1, .site-title {
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 576px) {
-  h1 {
+  h1, .site-title, 
+  .scrolling-down .site-title {
     font-size: 1.5rem;
   }
 }
@@ -261,9 +275,10 @@ html:not(.wp-toolbar) {
 
 footer {
   background-color: #fff;
+  padding: 20px 0;
 }
 footer .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
-  padding: 20px 0;
+  padding: 5px 0;
 }
 footer p {
   margin-bottom: 0;
@@ -273,4 +288,18 @@ footer a[href*=facebook] {
 }
 .hfe-nav-menu a.hfe-menu-item {
   line-height: 1.5;
+}
+@media screen and (max-width: 991px) {
+  footer {
+    text-align: center;
+  }
+  .hfe-nav-menu__align-right .hfe-nav-menu {
+    margin: 0 auto;
+  }
+  footer .elementor-column.elementor-col-33, 
+  footer .elementor-column[data-col="33"], 
+  footer .elementor-column.elementor-col-66, 
+  footer .elementor-column[data-col="66"] {
+    width: 100%;
+  }
 }
