@@ -61,11 +61,18 @@ h4 {
 h3, h4 {
   color: #54595F;
 }
-.page-content a {
-    color: #54595F;
+.page-content a, 
+.elementor-widget-navigation-menu .menu-item a.hfe-menu-item { 
+  color: var( --e-global-color-secondary );
+  text-decoration: none;
 }
-.page-content a {
-    color: #54595F;
+.page-content a:not(.elementor-button-link):hover, 
+.elementor-widget-navigation-menu .menu-item a.hfe-menu-item:hover { 
+  color: #222;
+}
+.page-content a:hover, 
+.elementor-widget-navigation-menu .menu-item a.hfe-menu-item:not([href*="facebook"]):hover { 
+  text-decoration: underline;
 }
 
 /***********************
@@ -137,26 +144,6 @@ html:not(.wp-toolbar) {
 .page-header {
   display: none;
 }
-.site-navigation ul.menu {
-	transition: all .5s;
-  margin-bottom: 4px;
-}
-.scrolling-down .site-navigation ul.menu {
-  margin-bottom: 0 !important;
-}
-.site-navigation .menu-item .dashicons {
-  padding-top: 3px;
-}
-.site-navigation ul.menu li.menu-item-has-children:after {
-  display: none;
-}
-.site-navigation ul.menu li ul {
-  box-shadow: 0px 4px 3px 0px rgb(0 0 0 / 10%);
-  min-width: auto;
-  left: auto;
-  right: 20px;
-}
-
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   h1, .site-title {
     font-size: 2rem;
@@ -175,6 +162,64 @@ html:not(.wp-toolbar) {
   .scrolling-down .site-title {
     font-size: 1.5rem;
   }
+}
+
+/***********************
+ * Main navigation     *
+ ***********************/
+.site-navigation ul.menu {
+	transition: all .5s;
+  margin-bottom: 4px;
+}
+.scrolling-down .site-navigation ul.menu {
+  margin-bottom: 0 !important;
+}
+.site-navigation .menu-item .dashicons {
+  padding-top: 3px;
+}
+.site-navigation ul.menu li.menu-item-has-children:after {
+  display: none;
+}
+.site-navigation ul.menu li.menu-item-has-children {
+  padding-right: 0; 
+}
+@media screen and (min-width: 992px)  {
+  .site-navigation ul.menu li ul li {
+    border-bottom: none;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px)  {
+  .site-navigation ul.menu li a {
+    padding: 8px;
+  }
+}
+/*.site-navigation ul.menu li ul {
+  box-shadow: 0px 4px 3px 0px rgb(0 0 0 / 10%);
+  min-width: auto;
+  left: auto;
+  right: 20px;
+}*/
+
+/***********************
+ * Language navigation *
+ ***********************/
+@media screen and (min-width: 992px) {
+  .site-navigation ul.menu li.language-selector a {
+    margin-left: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .site-navigation ul.menu li.language-selector + .language-selector a {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .language-selector + .language-selector a:before {
+    content: '|';
+    padding-right: 5px;
+  }
+}
+.language-active a {
+  text-decoration: underline;
 }
 
 /***********************

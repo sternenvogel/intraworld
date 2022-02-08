@@ -37,12 +37,33 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  // Remove other anchor link behaviour (elementor smooth scrolling) and add custom scrolling
+  // Remove other anchor link behaviour (elementor smooth scrolling) and add 
+  // custom scrolling, except for elements with children. 
   $('a[href*=#]:not([href=#])').off('click').on('click', function (e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    let parent = $(this).parent();
+    console.log($(this));
+    console.log(parent);
+    if (parent.hasClass('menu-item-has-children')) {
+      // Open / close submenu
       e.preventDefault();
-      scrollToAnchor(this.hash);
+      parent.toggleClass('elementor-active');
       return false;
+    }
+    else {
+      // Scroll to position and close mobile menu
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        e.preventDefault();
+
+        // Scrolling
+        scrollToAnchor(this.hash);
+        // Close all sub menus
+        $(this).closest('.menu').find('.elementor-active').removeClass('elementor-active');
+        // Close mobile navigation
+        $('.site-navigation-toggle-holder').removeClass('elementor-active');
+        $('.site-navigation-dropdown').attr('aria-hidden', "true");
+
+        return false;
+      }
     }
   });
   
