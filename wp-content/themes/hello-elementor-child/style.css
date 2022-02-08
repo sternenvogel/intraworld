@@ -13,11 +13,15 @@
  ***********************/
 
 @media screen and (max-width: 767px) {
-  .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
   .site-header .header-inner, .site-header:not(.dynamic-header), 
+  .site-footer .footer-inner, .site-footer:not(.dynamic-footer), 
   body:not([class*=elementor-page-]) .site-main, 
   .elementor-top-section.elementor-section-boxed > .elementor-container {
     max-width: calc(100% - 50px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .site-footer .footer-inner, .site-footer:not(.dynamic-footer) {
     padding: 0;
   }
 }
@@ -292,17 +296,32 @@ html:not(.wp-toolbar) {
  * Elementor overrides *
  ***********************/
 
-.elementor-column-gap-default>.elementor-column>.elementor-element-populated {
-  padding: 40px 40px 40px 0;
+/* Column structure */
+.elementor-column-gap-default {
+  padding: 25px 0;
 }
-.elementor-column-gap-default>.elementor-column:last-child>.elementor-element-populated {
-  padding-right: 0;
+.elementor-column-gap-default > .elementor-column > .elementor-element-populated {
+  padding: 15px 0;
 }
-@media screen and (max-width: 767px) {
-  .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+@media screen and (min-width: 768px) {
+  .elementor-column-gap-default > .elementor-column {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .elementor-column-gap-default > .elementor-column:first-child {
+    padding-left: 0;
+  }
+  .elementor-column-gap-default > .elementor-column:last-child {
     padding-right: 0;
   }
 }
+@media screen and (max-width: 767px) {
+  .swap-items-on-mobiles > .elementor-container {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Various */
 .site-main .elementor-top-section {
   background-color: #FFF;
 }
@@ -310,8 +329,32 @@ html:not(.wp-toolbar) {
 .site-main .elementor-top-section:nth-child(odd) {
   background-color: #E8F8FF;
 }
-.elementor-widget-container :first-child{
+.elementor-widget-container > :first-child{
   margin-top: 0;
+}
+
+/***********************
+ * Content elements    *
+ ***********************/
+.top-quote-container .elementor-element-populated {
+  align-self: center;
+}
+@media screen and (max-width: 991px) {
+  .top-quote-container .elementor-element.elementor-widget {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .top-quote-container .elementor-widget-image {
+    padding-bottom: 20px;
+  }
+}
+
+/***********************
+ * Forms               *
+ ***********************/
+.caldera-grid label {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /***********************
