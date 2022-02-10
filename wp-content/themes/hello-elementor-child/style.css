@@ -9,6 +9,17 @@
 */
 
 /***********************
+ * Configuration       *
+ ***********************/
+:root {
+  --ec-global-color-darker: #54595F;
+  --ec-global-color-link-hover: #222;
+  --ec-global-color-bg: #FFF;
+  --ec-global-color-bg-alt: #E3F6F9;
+  --ec-global-color-bg-home: #FFFEF2;
+}
+
+/***********************
  * Container overrides *
  ***********************/
 
@@ -63,19 +74,16 @@ h4 {
   font-size: 1.1rem;
 }
 h3, h4 {
-  color: #54595F;
+  color: var( --ec-global-color-darker );
 }
-.page-content a, 
-.elementor-widget-navigation-menu .menu-item a.hfe-menu-item { 
-  color: var( --e-global-color-secondary );
+.page-content a {
   text-decoration: none;
 }
-.page-content a:not(.elementor-button-link):hover, 
-.elementor-widget-navigation-menu .menu-item a.hfe-menu-item:hover { 
-  color: #222;
+.page-content a:not(.elementor-button-link) {
+  color: var( --e-global-color-secondary );
 }
-.page-content a:hover, 
-.elementor-widget-navigation-menu .menu-item a.hfe-menu-item:not([href*="facebook"]):hover { 
+.page-content a:not(.elementor-button-link):hover {
+  color: var( --ec-global-color-link-hover );
   text-decoration: underline;
 }
 
@@ -105,7 +113,7 @@ html:not(.wp-toolbar) {
   height: 130px;
   margin: 0 auto;
   z-index: 10;
-  background-color: #fff;
+  background-color: var( --ec-global-color-bg );
   box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 0%);
   transition: all .5s;
 }
@@ -143,7 +151,7 @@ html:not(.wp-toolbar) {
 }
 .site-branding a:active, 
 .site-branding a:hover {
-  color: #c36;
+  color: var( --e-global-color-primary );
 }
 .page-header {
   display: none;
@@ -322,12 +330,15 @@ html:not(.wp-toolbar) {
 }
 
 /* Various */
-.site-main .elementor-top-section {
-  background-color: #FFF;
-}
 .page, 
+.site-main .elementor-top-section {
+  background-color: var( --ec-global-color-bg );
+}
 .site-main .elementor-top-section:nth-child(odd) {
-  background-color: #E8F8FF;
+  background-color: var( --ec-global-color-bg-alt );
+}
+.home .page {
+  background-color: var( --ec-global-color-bg-home );
 }
 .elementor-widget-container > :first-child{
   margin-top: 0;
@@ -338,6 +349,12 @@ html:not(.wp-toolbar) {
  ***********************/
 .top-quote-container .elementor-element-populated {
   align-self: center;
+}
+.top-quote-container .elementor-element {
+  color: var( --ec-global-color-darker );
+}
+.top-quote-container p {
+  margin-bottom: 0;
 }
 @media screen and (max-width: 991px) {
   .top-quote-container .elementor-element.elementor-widget {
@@ -352,8 +369,8 @@ html:not(.wp-toolbar) {
 /***********************
  * Forms               *
  ***********************/
-.caldera-grid label {
-  margin-top: 10px;
+.caldera-grid .form-group > label {
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -362,7 +379,7 @@ html:not(.wp-toolbar) {
  ***********************/
 
 footer {
-  background-color: #fff;
+  background-color: var( --ec-global-color-bg );
   padding: 20px 0;
 }
 footer .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
@@ -377,6 +394,13 @@ footer a[href*=facebook] {
 .hfe-nav-menu a.hfe-menu-item {
   line-height: 1.5;
 }
+.elementor-widget-navigation-menu .menu-item a.hfe-menu-item { 
+  color: var( --e-global-color-primary );
+}
+.elementor-widget-navigation-menu .menu-item a.hfe-menu-item:hover { 
+  color: var( --ec-global-color-link-hover );
+}
+
 @media screen and (max-width: 991px) {
   footer {
     text-align: center;
