@@ -1,3 +1,6 @@
+/**
+ * Scrolling scripts by Benno Flory (2022)
+ */
 jQuery(document).ready(function ($) {
 
   // -------------------
@@ -61,7 +64,7 @@ jQuery(document).ready(function ($) {
       return false;
     }
     else {
-      // Scroll to position and close mobile menu (if anchor on same page
+      // Scroll to position and close mobile menu (if anchor on same page)
       if (trimSlashes(location.pathname) == trimSlashes(this.pathname) && location.hostname == this.hostname) {
         e.preventDefault();
 
