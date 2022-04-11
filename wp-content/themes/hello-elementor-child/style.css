@@ -42,6 +42,11 @@ h1, h2 {
 h2 {
   font-size: 2.5rem;
 }
+.elementor-widget-container h2 {
+    color: var( --e-global-color-primary );
+    font-family: var( --e-global-typography-primary-font-family ), Sans-serif;
+    font-weight: var( --e-global-typography-primary-font-weight );
+}
 h3 {
   font-size: 1.25rem;
 }
@@ -52,6 +57,10 @@ h4 {
   h2 {
     font-size: 2.15rem;
   }
+}
+p, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 .page-content a {
   text-decoration: none;
@@ -499,7 +508,7 @@ html:not(.wp-toolbar) {
 
 /* Column structure */
 .elementor-top-section > .elementor-column-gap-default {
-  padding: 35px 0;
+  padding: 0 0 25px;
 }
 .elementor-column-gap-default > .elementor-column > .elementor-element-populated {
   padding: 15px 0;
@@ -517,10 +526,20 @@ html:not(.wp-toolbar) {
   }
 }
 @media screen and (min-width: 1200px) {
-  .elementor-top-section .elementor-container .elementor-col-100 {
+  .elementor-top-section > .elementor-container > .elementor-col-100 {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
+  }
+  .elementor-top-section > .elementor-container > .elementor-col-50 {
+    width: 35%; /* 70% / 2 */
+  }
+  .elementor-top-section > .elementor-container > .elementor-col-25 {
+    width: 17.5%; /* 70% / 4 */
+  }
+  .elementor-top-section > .elementor-container > .elementor-col-50:first-child, 
+  .elementor-top-section > .elementor-container > .elementor-col-25:first-child {
+    margin-left: 15%; /* (100%-70%) / 2 */
   }
 }
 
@@ -535,8 +554,12 @@ html:not(.wp-toolbar) {
 .home .page {
   background-color: var( --ec-global-color-bg-header );
 }
-.elementor-widget-container > :first-child{
+.elementor-widget-container > h1:first-of-type, 
+.elementor-widget-container > h2:first-of-type {
   margin-top: 0;
+}
+.elementor-widget-container > .elementor-heading-title:first-of-type {
+  margin-top: 50px;
 }
 
 /***********************
@@ -625,7 +648,10 @@ body:not(.elementor-editor-active) .elementor-section-wrap > .elementor-section:
 footer {
   background-color: var( --ec-global-color-bg-footer );
 }
-footer .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+footer .elementor-top-section > .elementor-column-gap-default {
+  padding: 20px 0;
+}
+footer .elementor-column-gap-default > .elementor-column > .elementor-element-populated {
   padding: 5px 0;
 }
 footer p {
