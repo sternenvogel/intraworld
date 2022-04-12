@@ -40,12 +40,10 @@ h1, h2 {
   color: var( --e-global-color-primary );
 }
 h2 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
 }
 .elementor-widget-container h2 {
-    color: var( --e-global-color-primary );
-    font-family: var( --e-global-typography-primary-font-family ), Sans-serif;
-    font-weight: var( --e-global-typography-primary-font-weight );
+  font-weight: var( --e-global-typography-primary-font-weight );
 }
 h3 {
   font-size: 1.25rem;
@@ -55,12 +53,12 @@ h4 {
 }
 @media screen and (max-width: 767px) {
   h2 {
-    font-size: 2.15rem;
+    font-size: 1.7rem;
   }
 }
 p, ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 .page-content a {
   text-decoration: none;
@@ -117,6 +115,29 @@ p, ul {
   body:not([class*=elementor-page-]) .site-main, 
   .elementor-section.elementor-section-boxed > .elementor-container {
     max-width: 900px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .elementor-top-section > .elementor-container > .elementor-col-100 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+  }
+  .elementor-top-section > .elementor-container > .elementor-col-50 {
+    width: calc(900px / 2);
+  }
+  .elementor-top-section > .elementor-container > .elementor-col-25 {
+    width: calc(900px / 4);
+  }
+  .elementor-top-section > .elementor-container > .elementor-col-50:first-child, 
+  .elementor-top-section > .elementor-container > .elementor-col-25:first-child {
+    margin-left: calc((100% - 900px) / 2);
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 767px) {
+  .elementor-column.elementor-col-25, 
+  .elementor-column[data-col="25"] {
+      width: 50%;
   }
 }
 
@@ -268,7 +289,7 @@ html:not(.wp-toolbar) {
 .site-navigation ul.menu, 
 .site-navigation ul.menu li a, 
 .site-navigation ul.menu li ul {
-	transition: all .5s;
+  transition: all .5s;
   /*margin-bottom: 4px;*/
 }
 .scrolling-down .site-navigation ul.menu {
@@ -523,23 +544,6 @@ html:not(.wp-toolbar) {
   }
   .elementor-column-gap-default > .elementor-column:last-child {
     padding-right: 0;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .elementor-top-section > .elementor-container > .elementor-col-100 {
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-  }
-  .elementor-top-section > .elementor-container > .elementor-col-50 {
-    width: 35%; /* 70% / 2 */
-  }
-  .elementor-top-section > .elementor-container > .elementor-col-25 {
-    width: 17.5%; /* 70% / 4 */
-  }
-  .elementor-top-section > .elementor-container > .elementor-col-50:first-child, 
-  .elementor-top-section > .elementor-container > .elementor-col-25:first-child {
-    margin-left: 15%; /* (100%-70%) / 2 */
   }
 }
 
