@@ -55,9 +55,15 @@ jQuery(document).ready(function ($) {
   // Behaviour of links with hash: 
   // Remove other anchor link behaviour (elementor smooth scrolling) and add 
   // custom scrolling, except for elements with children. 
+  $('.site-navigation .menu-item-has-children').hover(function(e) {
+    $(this).addClass('elementor-active');
+  }, 
+  function(e) {
+    $(this).removeClass('elementor-active');
+  });
   $('a[href*=#]:not([href=#])').off('click').on('click', function (e) {
     let parent = $(this).parent();
-    if (parent.hasClass('menu-item-has-children')) {
+    if (parent.hasClass('menu-item-has-children') && !parent.hasClass('elementor-active')) {
       // Open / close submenu
       e.preventDefault();
       parent.toggleClass('elementor-active');

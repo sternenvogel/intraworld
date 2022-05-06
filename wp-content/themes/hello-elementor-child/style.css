@@ -60,6 +60,9 @@ p, ul {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+ul.sub-menu {
+  margin-bottom: 0;
+}
 .page-content a {
   text-decoration: none;
 }
@@ -562,12 +565,12 @@ html:not(.wp-toolbar) {
 .elementor-widget-container > h2:first-of-type {
   margin-top: 0;
 }
-.elementor-top-column > .elementor-widget-wrap > .elementor-widget-heading {
+.elementor-col-100 > .elementor-element-populated > .elementor-widget-heading {
   margin-top: 50px;
 }
-.elementor-widget-container > .elementor-heading-title:first-of-type {
-  /*margin-top: 50px;*/
-}
+/*.elementor-section .elementor-section .elementor-widget-heading {  not for child sections 
+  margin-top: 0;
+}*/
 
 /***********************
  * Content elements    *
@@ -638,6 +641,17 @@ body:not(.elementor-editor-active) .elementor-section-wrap > .elementor-section:
   .elementor-top-section.zoom-on-mobiles .elementor-container {
     min-height: 29vw !important;
   }
+}
+
+@media screen and (max-width: 767px) {
+  .elementor-col-50 .elementor-widget-image {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.elementor-widget-image a img[src$=".svg"].size-large {
+  width: auto;
 }
 
 /***********************
